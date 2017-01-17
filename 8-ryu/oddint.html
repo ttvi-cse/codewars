@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function findOdd(A) {
+		var obj = {};
+		A.forEach(function(a) {
+			if (!(a in obj)) {
+				obj[a] = 1;
+				// console.logo(bj);
+			} else {
+				obj[a]++;
+				// console.log(obj);
+			}
+		});
+
+		console.log(obj);
+
+		for (var prop in obj) {
+			if (obj.hasOwnProperty(prop)) {
+				if (obj[prop] % 2 != 0) {
+					return prop;
+				}
+			}
+		}
+
+		return 0;
+	}
+
+	var odd = findOdd([20,1,-1,2,-2,3,3,5,5,1,2,4,20,4,-1,-2,5]);
+
+	console.log(odd);
+
+</script>
+</body>
+</html>

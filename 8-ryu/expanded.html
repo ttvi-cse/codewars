@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	function expandedForm(num) {
+	  var x = -1;
+	  num = num.toString().split('').reverse().map(function(i) {
+	  	x++;
+	  	return i + '0'.repeat(x);
+	  });
+
+	  return num.filter(function(i) {
+	  	return i > 0;
+	  }).reverse().join(" + ");
+	}
+
+	console.log(expandedForm(22220002220001));
+
+</script>
+</body>
+</html>

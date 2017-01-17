@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+
+	fighters = [
+		["Ryu", "E.Honda", "Blanka", "Guile", "Balrog", "Vega"],
+		["Ken", "Chun Li", "Zangief", "Dhalsim", "Sagat", "M.Bison"]
+	];
+
+	moves = ['right', 'down', 'left', 'left', 'left', 'left', 'right'];
+
+	function streetFighterSelection(fighters, position, moves) {
+		var arr = [];
+
+		moves.forEach(function(move) {
+			switch(move) {
+				case 'up':
+					position[0] = position[0] == 0 ? position[0] : position[0] - 1;
+					break;
+				case 'down':
+					position[0] = position[0] == 0 ? position[0] + 1 : position[0];
+					break;
+				case 'right':
+					position[1] = position[1] == 5 ? position[1] = 0 : position[1] + 1;
+					break;
+				case 'left':
+					position[1] = position[1] == 0 ? position[1] = 5 : position[1] - 1;
+					break;
+				default:
+					break;
+			}
+
+			arr.push(fighters[position[0]][position[1]]);
+		})
+		return arr;
+	}
+
+	var result = streetFighterSelection(fighters, [0,0], moves);
+
+	console.log(result);
+
+</script>
+</body>
+</html>

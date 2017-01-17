@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	var opposite = {
+		'NORTH': 'SOUTH',
+		'SOUTH': 'NORTH',
+		'EAST': 'WEST',
+		'WEST': 'EAST'
+	}
+
+	function dirReduc(arr) {
+		return arr.reduce(function(accumulator, current, index, array) {
+			if (accumulator[accumulator.length - 1] == opposite[current])  {
+				accumulator.pop();
+			} else {
+				accumulator.push(current);
+			}
+			
+			return accumulator;
+		}, []);
+	}
+
+	var s = dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]);
+	console.log(s);
+</script>
+</body>
+</html>

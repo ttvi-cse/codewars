@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	// return masked string
+	function maskify(cc) {
+		return cc.split('').map(function(current, index, array){
+		  if (array.length < 5) return current;
+		  else {
+		    if (index < array.length - 4)
+		      return '*';
+		    else 
+		      return current;
+		  }
+		}).join('');
+	}
+
+	console.log(maskify("4556364607935616"));
+
+</script>
+</body>
+</html>

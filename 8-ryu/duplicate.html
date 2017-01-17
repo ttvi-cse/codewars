@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script type="text/javascript">
+  function duplicateCount(text){
+    //...
+    var obj = {};
+    
+    text.split('').forEach(function(i){
+      if (!(i in obj))
+          obj[i] = 1;
+      else 
+          obj[i]++;
+    });
+
+    // console.log(obj);
+    
+    var arr = [];
+    for (var prop in obj) {
+      if (obj.hasOwnProperty(prop)) {
+        if (obj[prop] > 1) {
+          // console.log(prop)
+          arr.push(prop);
+        }
+      }
+    }
+
+    // console.log(arr.join(' and '));
+
+    return arr.join(' and ');
+  }
+
+  duplicateCount('aabbcde');
+</script>
+</body>
+</html>

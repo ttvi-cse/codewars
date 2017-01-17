@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	var test1 = 'Toshi Shichiro Shoichi Takashi Yoshinori Toyo Teruo Nori Satoru Yoichi Tatsuo Shuji Shima Yoshihiro Ryo Rokuro Uyeda Shig Yoshito Satoshi Tamotsu Yoshikazu Tsuyoshi Toshiyuki Ryuu Tama Takeshi Ryozo Norio Naoko Nobu Tsutomu Ryota Saburo Takao Mitsuo Toshiaki Ringo Shuichi Mikio Yasahiro Toshio Noboru Sadao Michio Rafu Yasuhiro Shigekazu Osamu Yori Yuji Yoshi Yuki Raiden Takumi Shinji Ryuichi Minoru Senichi Shin Yasuo Shigeo Yoshiyuki Yasushi Samuru Tetsuya Toshihiro Tadao Takehiko Yoshiaki Tsuneo ';
+
+ 	var lst = ['Takao',
+ 		'Takehiko',
+        'Takayuki',
+        'Takahiro',
+        'Takeshi',
+        'Takeshi',
+        'Takashi',
+        'Tadashi',
+        'Takeo'];
+
+    var lst2 = ['xxd', 'xxc', 'xxb', 'xxa', 'xd', 'xc', 'xb', 'xa'];
+
+	function lineupStudents(students) {
+		return students.split(' ').sort(function(a,b) {
+			// greater length return 1
+			if (a.length > b.length) {
+				return -1;
+			} 
+			// smaller length return -1
+			else if (a.length < b.length) {
+				return 1;
+			}
+			// equal length
+			 else {
+			 	var ar = a.split('');
+			 	var br = b.split('');
+
+			 	for (var i = 0; i < Math.min(ar.length, br.length); i++) {
+			 		if (ar[i] === br[i])
+			 			continue;
+
+			 		if (ar[i] < br[i])
+			 			return 1;
+			 		else 
+			 			return -1;
+			 	}
+			}
+		});
+	}
+	// console.log(lst);
+	console.log(lineupStudents(test1));
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	var sum = [0, 1, 2, 3].reduce(function(a, b) {
+	  return a + b;
+	}, 0);
+	// sum is 6
+
+	var flattened = [[0, 1], [2, 3], [4, 5]].reduce(function(a, b) { 
+	  return a.concat(b);
+	}, []);
+	// flattened is [0, 1, 2, 3, 4, 5]
+
+	console.log(sum);
+	console.log(flattened);
+
+</script>
+</body>
+</html>
