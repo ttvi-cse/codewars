@@ -1,0 +1,10 @@
+// [1, 60, -10, 70, -80, 85]
+1. Initialize
+    closests = []
+2. For i = 0 to array.length
+    a. For j = i to array.length
+          - abs = math.abs(arr[i] - arr[j])
+          - if abs < closests[i]
+                closest[i] = abs;
+3. Find max of closests
+4. Find two element have sum of max.
