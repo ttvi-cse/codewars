@@ -1,3 +1,12 @@
+function mergeSort(arr, lo, hi) {
+    console.log(lo, hi);
+    if (hi <= lo)
+        return;
+    var mid = lo + Math.floor((hi - lo)/2);
+    mergeSort(arr, lo, mid);
+    mergeSort(arr, mid+1, hi);
+    merge(arr, lo, mid, hi);
+}
 /**
  * This mehod merges by first copying into the auxiliary array
  * aux[] the mergin back to a[].
@@ -7,12 +16,12 @@
  * @param hi
  */
 function merge(a, lo, mid, hi) {
+    console.log('merge: ' + lo + ' ' + hi);
     var i = lo, j = mid + 1;
     var aux = [];
     for (var k = lo; k <= hi; k++) {
         aux[k] = a[k];
     }
-    console.log(aux);
     for (var k = lo; k <= hi; k++) {
         // left half exhausted (take from the right)
         if (i > mid)
@@ -31,13 +40,6 @@ function merge(a, lo, mid, hi) {
     }
 }
 
-var arr = "eegmracert".split('');
-
-var lo = 0;
-var hi = arr.length -1;
-var mi = (lo + hi) / 2;
-
-merge(arr,lo,mi,hi);
-
-// console.log(arr);
-
+var arr = [2,5,3,6,1000,2,2,6,7,8,12];
+mergeSort(arr, 0, arr.length-1);
+console.log(arr);
