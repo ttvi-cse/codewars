@@ -47,12 +47,14 @@ Queue.prototype.getRear = function() {
     return this.arr[this.rear];
 }
 
-var queue = new Queue();
-queue.init(100);
-queue.enqueue(10);
-queue.enqueue(20);
-queue.enqueue(30);
-queue.enqueue(40);
-// console.log(queue.dequeue());
-console.log(queue.getFront());
-console.log(queue.getRear());
+// var queue = new Queue();
+// queue.init(100);
+// queue.enqueue(10);
+// queue.enqueue(20);
+// queue.enqueue(30);
+// queue.enqueue(40);
+// // console.log(queue.dequeue());
+// console.log(queue.getFront());
+// console.log(queue.getRear());
+
+module.exports = Queue;

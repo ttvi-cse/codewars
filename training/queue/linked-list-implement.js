@@ -44,14 +44,16 @@ Queue.prototype.print = function () {
     }
 }
 
-var queue = new Queue();
-queue.init();
-queue.enqueue(1);
-queue.enqueue(2);
-queue.enqueue(3);
-// queue.print();
-console.log(queue.dequeue());
-console.log(queue.dequeue());
-console.log(queue.dequeue());
-console.log(queue.dequeue());
-console.log(queue.dequeue());
+// var queue = new Queue();
+// queue.init();
+// queue.enqueue(1);
+// queue.enqueue(2);
+// queue.enqueue(3);
+// // queue.print();
+// console.log(queue.dequeue());
+// console.log(queue.dequeue());
+// console.log(queue.dequeue());
+// console.log(queue.dequeue());
+// console.log(queue.dequeue());
+
+module.exports = Queue;
