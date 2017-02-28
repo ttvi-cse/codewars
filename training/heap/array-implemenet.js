@@ -17,6 +17,18 @@ MinHeap.prototype.minHeapify = function(i) {
         this.minHeapify(smallest);
     }
 };
+
+// MinHeap.prototype.heapSort = function(arr) {
+//     for (var i = this.size/2 - 1; i >= 0; i--)
+//         this.minHeapify(i);
+//
+//     for (var i = this.size - 1; i >= 0; i--) {
+//         var t = arr[0];
+//         arr[0] = arr[i];
+//
+//         this.minHeapify()
+//     }
+// }
 // TODO implement extractMin function
 MinHeap.prototype.extractMin = function() {
 

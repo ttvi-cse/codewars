@@ -6,21 +6,20 @@ function Node(data) {
 function Queue() {
     this.front = null;
     this.rear = null;
-}
-
-Queue.prototype.init = function() {
-    this.front = this.rear = null;
+    this.size = 0;
 }
 
 Queue.prototype.enqueue = function(data) {
     var node = new Node(data);
     if (this.rear == null) {
         this.rear = this.front = node;
+        this.size = this.size + 1;
         return;
     }
 
     this.rear.next = node;
     this.rear = node;
+    this.size = this.size + 1;
 }
 
 Queue.prototype.dequeue = function() {
@@ -33,15 +32,19 @@ Queue.prototype.dequeue = function() {
     if (this.front == null)
         this.rear = null;
 
+    this.size = this.size - 1;
+
     return temp.data;
 }
 
 Queue.prototype.print = function () {
     var temp = this.front;
+    var arr = [];
     while (temp != null) {
-        console.log(temp.data);
+        arr.push(temp.data);
         temp = temp.next;
     }
+    console.log(arr);
 }
 
 // var queue = new Queue();
