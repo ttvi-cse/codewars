@@ -1,4 +1,4 @@
-var Graph = require('./adjacency-list-implement')
+var Graph = require('./graph')
 /**
  * Return true if the graph contains a cycle, else false
  * This function is a variation of dfs()

@@ -62,10 +62,83 @@ If n > m: grow table
 
 **TABLE DOUBLING**
 
-
 #####Amortization
 - operation take "T(n)" amotized
 if k operation take <= kT(n)time
+
+##Rolling hashing ADT
+- r.append(c):
+    - add char c to end of x
+- r.skip(c): delete first char of x (assuming it is c)
+- r maintains a string x
+    - r(): hash value of x=h(x)
+### How to build?
+- division method:  h(k) = k mode m. m is random prime number and m > |s|
+- treat x as multidigit number a
+```angular2html
+r.append(c)
+    c-> u.a+ ord(c)
+    r-> r.a+ord(c) mod m
+r.skip:
+    u->u-c.a
+```
+###Karp-Rabin algorithm
+```
+for c in s: rs.append(c)
+for c in t[len(s)] rt.appenn(c)
+if (rs==rt):
+for i in range(len(s),len(t)):
+    rt.skip(t[i-len(s)]
+    rt.append(t[i]])
+    if(rs()==rt()):
+    check whether s == t[i-len(s)+1:i+1]
+    if equal: 
+        found match
+    else:
+        happens with probality <= 1/s   
+```
+**=> 0(1) expected time**
+
+**0(|s|+|t|+#match.|s|)**     
+ 
+
+ 
+ 
+--------------------------------------------------
+# Hashing III
+- Open addressing
+- Uniform hashing analysis
+- Cryptographic hashing
+
+##Open addressing
+###Probing
+- Hash function specifies order of  slot to probe
+for a key (for insert/search/delete)
+- h : Ux{0,1,..,m-1}
+- h(k,1), h(k,2), ...h(k,m-1) to be a permutation of 0,1,..,m-1
+####Hash-Insert(T,k)
+```angular2html
+i=0
+repeat
+    j = h(k,i)
+    if T[j] == NIL
+        T[j] = k
+        return j
+    else i = i + 1
+util i == m
+error "hash table overflow"    
+```
+####Hash-Search(T,k)
+```angular2html
+i = 0
+repeat
+    j = h(k,i)
+    if T[j] == k
+        return j
+    i = i +1
+util T[j] == NIL or i == m
+return NIL    
+```
 ##QA
 1. Simple uniform hashing?
 2. Universal hashing?
@@ -73,5 +146,5 @@ if k operation take <= kT(n)time
 **Answer:** 0(1+alpha) if alpha is constant, we can take constant time in all operator of hash table.
 4. Amortization?
 5. Why we need to rebuilt hash table if we increase m?
-
+6. Why we use two hash in rolling hashing?
 
