@@ -101,19 +101,116 @@ u.f = time
 #### Topological sort (Job scheduling)
 
 
+
+
+
 # Single-Source Shortest Paths Problem
 - Weighted graphs
 - General approach
 - Negative edges
 - Optimal substructure
-##Motivation
+###Motivation
 - G(V,E,w)
     - w: weight. (w.e->r)
-#Two algos
+###Two algos
     - Dijkstra + not neg weight -> 0(VlgV+E)
     - Bellmen-Ford neg weight -> 0(VE)
+###Weighted graphs
+- d(v) - current distance
+- r(v) - preprocessor vertex
+### Negative weight graphs
+### Negative cycles
+### General structure
+- Initialize for u in V d[v]=infinite 
+r[v] = nil. 
+- Repeat select edge(u,v) [somehow].
+- Relax edge(u,v)
+```
+Repeat util all edge have d[v] <= d[u]+w(u,v):
+    if d[v]>d[u]+w(u,v): 
+        d[v] = d[u] + w(u,v)
+        r[v] = u;
+```
+### Optimal substructure
+Subpaths of shortest path are shortest path
 
-#TODO
 
-- [] Write cycle detection code
-- [] Write topolical sort code
+
+
+# Dijkstra (Greeky algorithm)
+### Relax(u,v,w)
+```
+Repeat util all edge have d[v] <= d[u]+w(u,v):
+    if d[v]>d[u]+w(u,v): 
+        d[v] = d[u] + w(u,v)
+        r[v] = u;
+```
+- Relaxation is safe
+### Lemma
+- The relaxation operation maintain the invariant that
+d[v] >= delta(s,v) for all v in V
+### DAGs 
+- Can't have (-ve) cycle
+```
+1. Topological sort the DAG. Path from u to v
+implies that u is before v in the ordering
+2. One pass over vertices in topologically sorted order.
+Relaxing each edge that leaves each vertex
+```
+-> 0(V+E) time
+### Dijkstra(G,W,s)
+- Have the cycle and non negative edge
+```
+Initialize (G,s) S=empty, Q=V
+while Q is not empty
+    u <- extract-min(Q) //delete u from Q
+    S <- S union {u}
+    for each vertex v in Adj[u]
+        relax(u,v,w)
+```
+- 0(V) inserts in to priority Queue
+- 0(V) extract-min ops
+- 0(E) decrease-key ops
+##### Arrays priority queue
+- 0(V) ex-min
+- 0(1) decrease-key
+
+-> 0(V.V+E.1)=0(V^2)
+##### Binary min-heap
+- 0(logV) for ex-min
+- 0(logV) for decrease-key
+
+-> 0(VlgV+ElgV)
+##### Fibonacci heap 
+- 0(lgV) for ex-min
+- 0(1) amortized for d-key
+
+-> 0(VlgV+E) linear time
+
+
+
+
+# Bellman-Ford (Dynamic programming)
+### Generic SP Algo
+```
+Initialize for v in V 
+    d[v] = infinite
+d[s]=0
+Repeat select edge [somehow] util you can't relax enymore
+    relax edge(u,v,w)
+```
+1. Complexity could be exponent time (even for positive edge)
+3. It will not even terminate if there is a negative cycle reachable from the source
+### Bellman-Ford(G,W,s)
+```
+Initialize():
+for i = 1 to |V| -1
+    for each edge (u,v) in E
+        //relax(u,v,w)
+        if d[v] > d[u] + w(u,v)
+            d[v]=d[u]+w(u,v)
+            r[v]=u;
+    for each edge (u,v) in E
+        if d[v] > d[u] + w(u,v)
+            report negative cycle exist
+```

@@ -1,6 +1,6 @@
 var Queue = require('../queue/linked-list-implement');
 
-function AdjListNode(dest) {
+function AdjListNode(dest,weight) {
     this.dest = dest;
     this.next = null;
 }

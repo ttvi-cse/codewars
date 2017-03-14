@@ -5,7 +5,6 @@ function selectionSort(arr) {
             if (arr[j] < arr[min])
                 min = j;
         }
-        exchange(arr[i], arr[min]);
         var t = arr[i];
         arr[i] = arr[min];
         arr[min] = t;
