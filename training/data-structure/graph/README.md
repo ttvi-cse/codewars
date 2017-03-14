@@ -205,7 +205,7 @@ Repeat select edge [somehow] util you can't relax enymore
 ```
 Initialize():
 for i = 1 to |V| -1
-    for each edge (u,v) in E
+    for each edge (u,v) in E    //0(VE)
         //relax(u,v,w)
         if d[v] > d[u] + w(u,v)
             d[v]=d[u]+w(u,v)
