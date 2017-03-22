@@ -1,3 +1,0 @@
-function deleteLl(ll) {
-
-}
