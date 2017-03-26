@@ -1,0 +1,3 @@
+function solveMine(map,n){
+
+}
